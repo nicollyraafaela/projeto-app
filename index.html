@@ -2,38 +2,38 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>All Language - Login</title>
-
+<title>All Language</title>
 <style>
-/* Estilo geral */
+/* ====== ESTILO GLOBAL ====== */
 body{
   font-family: Arial, sans-serif;
-  background: #f7f7f7;
+  background: #e0f0ff;
   margin: 0;
   text-align: center;
 }
 header{
-  background: #4CAF50;
+  background: #2196F3;
   color: white;
   padding: 20px;
 }
 .container{
   width: 50%;
+  max-width: 500px;
   margin: 50px auto;
   background: white;
   padding: 30px;
-  border-radius: 8px;
+  border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 input, select{
   width: 100%;
-  padding: 15px;
+  padding: 12px;
   margin: 10px 0;
   border-radius: 5px;
   border: 1px solid #ccc;
 }
 button{
-  background: #4CAF50;
+  background: #2196F3;
   color: white;
   border: none;
   padding: 15px;
@@ -42,90 +42,180 @@ button{
   font-size: 16px;
   cursor: pointer;
 }
-.aula, .idioma{
-  background: white;
-  padding: 20px;
-  margin: 20px auto;
-  width: 60%;
-  border-radius: 10px;
+button:hover{
+  background: #1976D2;
+}
+.hidden{
+  display: none;
+}
+.language-option{
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 5px;
+  border: 1px solid #2196F3;
+  border-radius: 5px;
   cursor: pointer;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
-.aula.lock{
-  opacity: 0.4;
-  pointer-events: none;
-}
-.aula:hover, .idioma:hover{
-  background: #eaeaea;
+.language-option.selected{
+  background: #2196F3;
+  color: white;
 }
 </style>
-
 </head>
-
 <body>
 
 <header>
   <h1>All Language</h1>
-  <h2>Aprenda idiomas facilmente</h2>
+  <h3>Aprenda idiomas facilmente! 30 dias gratuitos 🎉</h3>
 </header>
 
-<div class="container" id="content">
-  <!-- Conteúdo dinâmico será carregado aqui -->
+<div class="container" id="page-login">
+  <h2>Login ou Cadastro</h2>
+  <input type="email" id="email" placeholder="Seu email" required>
+  <input type="password" id="senha" placeholder="Sua senha" required>
+  <button onclick="login()">Entrar</button>
+  <p>Não tem conta? <a href="#" onclick="cadastrar()">Cadastre-se</a></p>
+</div>
+
+<div class="container hidden" id="page-languages">
+  <h2>Escolha seu idioma</h2>
+  <div id="languages-container">
+    <!-- Linguagens serão inseridas aqui -->
+  </div>
+  <button onclick="proximaEtapa()">Continuar</button>
+</div>
+
+<div class="container hidden" id="page-config">
+  <h2>Configurações de aprendizado</h2>
+  <label>Nível:</label>
+  <select id="nivel">
+    <option>Iniciante</option>
+    <option>Intermediário</option>
+    <option>Avançado</option>
+  </select>
+  <label>Intensidade:</label>
+  <select id="intensidade">
+    <option value="20">Básico - 20min/dia</option>
+    <option value="50">Puxado - 50min/dia</option>
+  </select>
+  <button onclick="iniciarAula()">Começar Aula 1</button>
+</div>
+
+<div class="container hidden" id="page-aula">
+  <h2 id="aula-title">Aula 1 — Se apresentando</h2>
+  <p id="vidas">❤️ Vidas: 5</p>
+  <p id="xp">⭐ XP: 0</p>
+  <div id="perguntas-container">
+    <!-- Perguntas serão inseridas aqui -->
+  </div>
 </div>
 
 <script>
-/* Função genérica para verificar respostas */
-function verificarResposta(inputId, respostaCorreta){
-  const r = document.getElementById(inputId).value.toLowerCase();
-  const resultado = document.getElementById(inputId + "_resultado");
-  if(r.includes(respostaCorreta.toLowerCase())){
-    resultado.innerHTML = "✅ Correto!";
-  } else {
-    resultado.innerHTML = `❌ Resposta: ${respostaCorreta}`;
+/* ====== SIMULA LOGIN/CADASTRO ====== */
+let user = null;
+function login(){
+  const email = document.getElementById("email").value;
+  const senha = document.getElementById("senha").value;
+  if(!email || !senha){
+    alert("Preencha email e senha");
+    return;
   }
+  // Simulação simples: cadastra na hora se não existir
+  if(localStorage.getItem(email) !== senha){
+    localStorage.setItem(email, senha);
+  }
+  user = email;
+  document.getElementById("page-login").classList.add("hidden");
+  showLanguages();
+}
+function cadastrar(){
+  alert("Digite seu email e senha e clique em Entrar para se cadastrar automaticamente.");
 }
 
-/* Exemplo de como gerar aulas dinamicamente */
-const aulas = [
-  {
-    titulo: "Aula 1 — Se apresentando",
-    frases: [
-      {pt:"Olá, meu nome é...", en:"my name is"},
-      {pt:"Eu tenho 20 anos", en:"I am 20 years old"},
-      {pt:"Eu sou brasileiro", en:"I am Brazilian"}
-    ]
-  },
-  {
-    titulo: "Aula 2 — Pedindo café",
-    frases: [
-      {pt:"Eu gostaria de um café", en:"I would like a coffee"}
-    ]
-  },
-  {
-    titulo: "Aula 3 — Família",
-    frases: [
-      {pt:"Eu moro com meus pais", en:"I live with my parents"}
-    ]
-  }
-];
-
-/* Função para gerar HTML de uma aula */
-function gerarAula(aula){
-  let html = `<h2>${aula.titulo}</h2>`;
-  aula.frases.forEach((f, i)=>{
-    html += `<h3>${f.en}</h3><p>${f.pt}</p>
-      <hr>
-      <p>Como se diz "${f.pt}"?</p>
-      <input id="resposta${i}">
-      <br><button onclick="verificarResposta('resposta${i}','${f.en}')">Responder</button>
-      <p id="resposta${i}_resultado"></p>`;
+/* ====== ESCOLHA DE IDIOMAS ====== */
+const languages = ["Inglês","Chinês","Hindi","Espanhol","Francês","Italiano","Árabe","Bengali","Russo"];
+let selectedLanguage = null;
+function showLanguages(){
+  document.getElementById("page-languages").classList.remove("hidden");
+  const container = document.getElementById("languages-container");
+  container.innerHTML = "";
+  languages.forEach(lang => {
+    const div = document.createElement("div");
+    div.textContent = lang;
+    div.className = "language-option";
+    div.onclick = () => {
+      document.querySelectorAll(".language-option").forEach(el=>el.classList.remove("selected"));
+      div.classList.add("selected");
+      selectedLanguage = lang;
+    };
+    container.appendChild(div);
   });
-  document.getElementById("content").innerHTML = html;
+}
+function proximaEtapa(){
+  if(!selectedLanguage) { alert("Escolha um idioma!"); return; }
+  document.getElementById("page-languages").classList.add("hidden");
+  document.getElementById("page-config").classList.remove("hidden");
 }
 
-/* Exemplo: carregar a primeira aula ao abrir */
-gerarAula(aulas[0]);
-</script>
+/* ====== CONFIGURAÇÕES DE AULA ====== */
+let nivel = "Iniciante";
+let intensidade = 20;
+function iniciarAula(){
+  nivel = document.getElementById("nivel").value;
+  intensidade = parseInt(document.getElementById("intensidade").value);
+  document.getElementById("page-config").classList.add("hidden");
+  document.getElementById("page-aula").classList.remove("hidden");
+  carregarAula1();
+}
 
+/* ====== AULA 1 ====== */
+let vidas = 5;
+let xp = 0;
+
+function carregarAula1(){
+  const perguntas = [
+    {pt:"Meu nome é...", en:"my name is"},
+    {pt:"Eu tenho 20 anos", en:"I am 20 years old"},
+    {pt:"Eu sou brasileiro(a)", en:"I am Brazilian"}
+  ];
+  const container = document.getElementById("perguntas-container");
+  container.innerHTML = "";
+  perguntas.forEach((p, i)=>{
+    const html = document.createElement("div");
+    html.innerHTML = `
+      <p>Como se diz "${p.pt}" em ${selectedLanguage}?</p>
+      <input id="resposta${i}">
+      <button onclick="verificarResposta(${i}, '${p.en}')">Responder</button>
+      <p id="resultado${i}"></p>
+      <hr>
+    `;
+    container.appendChild(html);
+  });
+  atualizarVidasXP();
+}
+
+function verificarResposta(i, respostaCorreta){
+  const input = document.getElementById("resposta"+i);
+  const resultado = document.getElementById("resultado"+i);
+  if(input.value.toLowerCase().includes(respostaCorreta.toLowerCase())){
+    resultado.innerHTML = "✅ Correto!";
+    xp += 3;
+  } else {
+    resultado.innerHTML = `❌ Errado! Resposta: ${respostaCorreta}`;
+    vidas -= 1;
+  }
+  atualizarVidasXP();
+}
+
+function atualizarVidasXP(){
+  document.getElementById("vidas").textContent = "❤️ Vidas: " + vidas;
+  document.getElementById("xp").textContent = "⭐ XP: " + xp;
+  if(vidas <= 0){
+    alert("Você perdeu todas as vidas! Reinicie o app.");
+    location.reload();
+  }
+}
+
+</script>
 </body>
 </html>
