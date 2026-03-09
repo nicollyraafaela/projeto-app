@@ -5,49 +5,59 @@
 <title>All Language - Login</title>
 
 <style>
-
+/* Estilo geral */
 body{
-font-family:Arial;
-background:#f7f7f7;
-margin:0;
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  margin: 0;
+  text-align: center;
 }
-
 header{
-background:#4CAF50;
-color:white;
-text-align:center;
-padding:20px;
+  background: #4CAF50;
+  color: white;
+  padding: 20px;
 }
-
 .container{
-width:50%;
-margin:auto;
-background:white;
-padding:30px;
-margin-top:50px;
-border-radius:8px;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
+  width: 50%;
+  margin: 50px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
-
-input{
-width:100%;
-padding:15px;
-margin-bottom:10px;
-border-radius:5px;
-border:1px solid #ccc;
+input, select{
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
-
-.btn{
-background:#4cafac;
-color:white;
-border:none;
-padding:15px;
-width:100%;
-border-radius:5px;
-font-size:16px;
-cursor:pointer;
+button{
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 15px;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
 }
-
+.aula, .idioma{
+  background: white;
+  padding: 20px;
+  margin: 20px auto;
+  width: 60%;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.aula.lock{
+  opacity: 0.4;
+  pointer-events: none;
+}
+.aula:hover, .idioma:hover{
+  background: #eaeaea;
+}
 </style>
 
 </head>
@@ -55,642 +65,66 @@ cursor:pointer;
 <body>
 
 <header>
-<h1>All Language</h1>
-<h2>Aprenda idiomas facilmente</h2>
+  <h1>All Language</h1>
+  <h2>Aprenda idiomas facilmente</h2>
 </header>
 
-<div class="container">
-
-<form action="idioma.html">
-
-<input type="email" placeholder="Seu email" required>
-
-<input type="password" placeholder="Sua senha" required>
-
-<button class="btn">Entrar</button>
-
-</form>
-
-</div>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<title>Escolher idioma</title>
-
-<style>
-
-body{
-font-family:Arial;
-background:#f7f7f7;
-margin:0;
-}
-
-header{
-background:#4cafac;
-color:white;
-text-align:center;
-padding:20px;
-}
-
-.container{
-width:50%;
-margin:auto;
-margin-top:50px;
-background:white;
-padding:30px;
-border-radius:8px;
-}
-
-.idioma{
-padding:15px;
-border:1px solid #ddd;
-border-radius:8px;
-margin-bottom:10px;
-cursor:pointer;
-}
-
-.idioma:hover{
-background:#eaeaea;
-}
-
-</style>
-
-</head>
-
-<body>
-
-<header>
-<h1>Escolha o idioma</h1>
-</header>
-
-<div class="container">
-
-<form action="config.html">
-
-<div class="idioma">
-<input type="radio" name="idioma" required> 🇺🇸 Inglês
-</div>
-
-<div class="idioma">
-<input type="radio" name="idioma"> 🇪🇸 Espanhol
-</div>
-
-<div class="idioma">
-<input type="radio" name="idioma"> 🇫🇷 Francês
-</div>
-
-<div class="idioma">
-<input type="radio" name="idioma"> 🇩🇪 Alemão
-</div>
-
-<button style="margin-top:20px" class="btn">Continuar</button>
-
-</form>
-
-</div>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<title>Configurações</title>
-
-<style>
-
-body{
-font-family:Arial;
-background:#f7f7f7;
-margin:0;
-}
-
-header{
-background:#4cafac;
-color:white;
-text-align:center;
-padding:20px;
-}
-
-.container{
-width:50%;
-margin:auto;
-background:white;
-padding:30px;
-margin-top:50px;
-border-radius:8px;
-}
-
-select{
-width:100%;
-padding:15px;
-margin-bottom:20px;
-}
-
-.btn{
-background:#4cafac;
-color:white;
-border:none;
-padding:15px;
-width:100%;
-border-radius:5px;
-}
-
-</style>
-
-</head>
-
-<body>
-
-<header>
-<h1>Configurações</h1>
-</header>
-
-<div class="container">
-
-<form action="mapa.html">
-
-<label>Nível</label>
-
-<select>
-
-<option>Iniciante</option>
-<option>Intermediário</option>
-<option>Avançado</option>
-
-</select>
-
-<label>Tipo de aula</label>
-
-<select>
-
-<option>Leve</option>
-<option>Intensa</option>
-
-</select>
-
-<button class="btn">Começar</button>
-
-</form>
-
-</div>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<title>Mapa de Aulas</title>
-
-<style>
-
-body{
-font-family:Arial;
-background:#f7f7f7;
-text-align:center;
-}
-
-header{
-background:#4cafac;
-color:white;
-padding:20px;
-}
-
-.aula{
-background:white;
-width:200px;
-margin:20px auto;
-padding:20px;
-border-radius:10px;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
-cursor:pointer;
-}
-
-.aula:hover{
-background:#eaeaea;
-}
-
-.lock{
-opacity:0.4;
-}
-
-</style>
-
-</head>
-
-<body>
-
-<header>
-<h1>Mapa de Aulas</h1>
-<p>❤️ 5 vidas</p>
-</header>
-
-<a href="aula1.html">
-<div class="aula">
-Aula 1  
-<br>
-Se apresentando
-</div>
-</a>
-
-<div class="aula lock">
-Aula 2 🔒  
-Cumprimentos
-</div>
-
-<div class="aula lock">
-Aula 3 🔒  
-Números
-</div>
-
-<head>
-<title>Aula 1</title>
-
-<style>
-
-body{
-font-family:Arial;
-background:#f7f7f7;
-text-align:center;
-}
-
-.container{
-background:white;
-width:60%;
-margin:auto;
-margin-top:50px;
-padding:30px;
-border-radius:10px;
-}
-
-input{
-padding:10px;
-width:60%;
-}
-
-button{
-padding:10px 20px;
-margin-top:10px;
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div class="container">
-
-<h2>Aula 1 — Se apresentando</h2>
-
-<p>Em inglês dizemos:</p>
-
-<h3>Hello, my name is...</h3>
-
-<p>Significa:</p>
-
-<h3>Olá, meu nome é...</h3>
-
-<hr>
-
-<p>Como se diz "Meu nome é" em inglês?</p>
-
-<input id="resposta">
-
-<br>
-
-<button onclick="verificar()">Responder</button>
-
-<p id="resultado"></p>
-
+<div class="container" id="content">
+  <!-- Conteúdo dinâmico será carregado aqui -->
 </div>
 
 <script>
-
-function verificar(){
-
-let r = document.getElementById("resposta").value.toLowerCase()
-
-if(r.includes("my name is")){
-
-document.getElementById("resultado").innerHTML="✅ Correto!"
-
-}else{
-
-document.getElementById("resultado").innerHTML="❌ Errado! Resposta: my name is"
-
+/* Função genérica para verificar respostas */
+function verificarResposta(inputId, respostaCorreta){
+  const r = document.getElementById(inputId).value.toLowerCase();
+  const resultado = document.getElementById(inputId + "_resultado");
+  if(r.includes(respostaCorreta.toLowerCase())){
+    resultado.innerHTML = "✅ Correto!";
+  } else {
+    resultado.innerHTML = `❌ Resposta: ${respostaCorreta}`;
+  }
 }
 
+/* Exemplo de como gerar aulas dinamicamente */
+const aulas = [
+  {
+    titulo: "Aula 1 — Se apresentando",
+    frases: [
+      {pt:"Olá, meu nome é...", en:"my name is"},
+      {pt:"Eu tenho 20 anos", en:"I am 20 years old"},
+      {pt:"Eu sou brasileiro", en:"I am Brazilian"}
+    ]
+  },
+  {
+    titulo: "Aula 2 — Pedindo café",
+    frases: [
+      {pt:"Eu gostaria de um café", en:"I would like a coffee"}
+    ]
+  },
+  {
+    titulo: "Aula 3 — Família",
+    frases: [
+      {pt:"Eu moro com meus pais", en:"I live with my parents"}
+    ]
+  }
+];
+
+/* Função para gerar HTML de uma aula */
+function gerarAula(aula){
+  let html = `<h2>${aula.titulo}</h2>`;
+  aula.frases.forEach((f, i)=>{
+    html += `<h3>${f.en}</h3><p>${f.pt}</p>
+      <hr>
+      <p>Como se diz "${f.pt}"?</p>
+      <input id="resposta${i}">
+      <br><button onclick="verificarResposta('resposta${i}','${f.en}')">Responder</button>
+      <p id="resposta${i}_resultado"></p>`;
+  });
+  document.getElementById("content").innerHTML = html;
 }
 
-</script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<title>Aula 1</title>
-
-<style>
-
-body{
-font-family:Arial;
-background:#f7f7f7;
-text-align:center;
-}
-
-.container{
-background:white;
-width:60%;
-margin:auto;
-margin-top:50px;
-padding:30px;
-border-radius:10px;
-}
-
-input{
-padding:10px;
-width:60%;
-margin-top:10px;
-}
-
-button{
-padding:10px 20px;
-margin-top:10px;
-background:#4cafac;
-color:white;
-border:none;
-border-radius:5px;
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div class="container">
-
-<h2>Aula 1 — Se apresentando</h2>
-
-<h3>Hello, my name is...</h3>
-<p>Olá, meu nome é...</p>
-
-<h3>I am 20 years old</h3>
-<p>Eu tenho 20 anos</p>
-
-<h3>I am Brazilian</h3>
-<p>Eu sou brasileiro</p>
-
-<hr>
-
-<p>Como se diz "Meu nome é" em inglês?</p>
-
-<input id="resposta1">
-<br>
-<button onclick="verificar1()">Responder</button>
-
-<p id="resultado1"></p>
-
-<hr>
-
-<p>Como se diz "Eu tenho 20 anos" em inglês?</p>
-
-<input id="resposta2">
-<br>
-<button onclick="verificar2()">Responder</button>
-
-<p id="resultado2"></p>
-
-<hr>
-
-<p>Como se diz "Eu sou brasileiro" em inglês?</p>
-
-<input id="resposta3">
-<br>
-<button onclick="verificar3()">Responder</button>
-
-<p id="resultado3"></p>
-
-</div>
-
-<script>
-
-function verificar1(){
-
-let r = document.getElementById("resposta1").value.toLowerCase()
-
-if(r.includes("my name is")){
-document.getElementById("resultado1").innerHTML="✅ Correto!"
-}else{
-document.getElementById("resultado1").innerHTML="❌ Resposta: my name is"
-}
-
-}
-
-function verificar2(){
-
-let r = document.getElementById("resposta2").value.toLowerCase()
-
-if(r.includes("years old")){
-document.getElementById("resultado2").innerHTML="✅ Correto!"
-}else{
-document.getElementById("resultado2").innerHTML="❌ Resposta: I am 20 years old"
-}
-
-}
-
-function verificar3(){
-
-let r = document.getElementById("resposta3").value.toLowerCase()
-
-if(r.includes("brazilian")){
-document.getElementById("resultado3").innerHTML="✅ Correto!"
-}else{
-document.getElementById("resultado3").innerHTML="❌ Resposta: I am Brazilian"
-}
-
-}
-
-</script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<title>Aula 2</title>
-
-<style>
-
-body{
-font-family:Arial;
-background:#f7f7f7;
-text-align:center;
-}
-
-.container{
-background:white;
-width:60%;
-margin:auto;
-margin-top:50px;
-padding:30px;
-border-radius:10px;
-}
-
-input{
-padding:10px;
-width:60%;
-}
-
-button{
-padding:10px 20px;
-margin-top:10px;
-background:#4cafac;
-color:white;
-border:none;
-border-radius:5px;
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div class="container">
-
-<h2>Aula 2 — Pedindo café</h2>
-
-<h3>I would like a coffee</h3>
-<p>Eu gostaria de um café</p>
-
-<h3>Please</h3>
-<p>Por favor</p>
-
-<h3>Thank you</h3>
-<p>Obrigado</p>
-
-<hr>
-
-<p>Como se diz "Eu gostaria de um café"?</p>
-
-<input id="resposta1">
-<br>
-<button onclick="verificar1()">Responder</button>
-
-<p id="resultado1"></p>
-
-</div>
-
-<script>
-
-function verificar1(){
-
-let r = document.getElementById("resposta1").value.toLowerCase()
-
-if(r.includes("coffee")){
-document.getElementById("resultado1").innerHTML="✅ Correto!"
-}else{
-document.getElementById("resultado1").innerHTML="❌ Resposta: I would like a coffee"
-}
-
-}
-
-</script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<title>Aula 3</title>
-
-<style>
-
-body{
-font-family:Arial;
-background:#f7f7f7;
-text-align:center;
-}
-
-.container{
-background:white;
-width:60%;
-margin:auto;
-margin-top:50px;
-padding:30px;
-border-radius:10px;
-}
-
-input{
-padding:10px;
-width:60%;
-}
-
-button{
-padding:10px 20px;
-margin-top:10px;
-background:#4cafac;
-color:white;
-border:none;
-border-radius:5px;
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div class="container">
-
-<h2>Aula 3 — Família</h2>
-
-<h3>I live with my parents</h3>
-<p>Eu moro com meus pais</p>
-
-<h3>I have two brothers</h3>
-<p>Eu tenho dois irmãos</p>
-
-<h3>I have one sister</h3>
-<p>Eu tenho uma irmã</p>
-
-<hr>
-
-<p>Como se diz "Eu moro com meus pais"?</p>
-
-<input id="resposta1">
-<br>
-<button onclick="verificar()">Responder</button>
-
-<p id="resultado"></p>
-
-</div>
-
-<script>
-
-function verificar(){
-
-let r = document.getElementById("resposta1").value.toLowerCase()
-
-if(r.includes("live with my parents")){
-document.getElementById("resultado").innerHTML="✅ Correto!"
-}else{
-document.getElementById("resultado").innerHTML="❌ Resposta: I live with my parents"
-}
-
-}
-
+/* Exemplo: carregar a primeira aula ao abrir */
+gerarAula(aulas[0]);
 </script>
 
 </body>
