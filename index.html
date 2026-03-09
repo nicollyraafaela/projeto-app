@@ -392,3 +392,306 @@ document.getElementById("resultado").innerHTML="❌ Errado! Resposta: my name is
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Aula 1</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f7f7f7;
+text-align:center;
+}
+
+.container{
+background:white;
+width:60%;
+margin:auto;
+margin-top:50px;
+padding:30px;
+border-radius:10px;
+}
+
+input{
+padding:10px;
+width:60%;
+margin-top:10px;
+}
+
+button{
+padding:10px 20px;
+margin-top:10px;
+background:#4cafac;
+color:white;
+border:none;
+border-radius:5px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Aula 1 — Se apresentando</h2>
+
+<h3>Hello, my name is...</h3>
+<p>Olá, meu nome é...</p>
+
+<h3>I am 20 years old</h3>
+<p>Eu tenho 20 anos</p>
+
+<h3>I am Brazilian</h3>
+<p>Eu sou brasileiro</p>
+
+<hr>
+
+<p>Como se diz "Meu nome é" em inglês?</p>
+
+<input id="resposta1">
+<br>
+<button onclick="verificar1()">Responder</button>
+
+<p id="resultado1"></p>
+
+<hr>
+
+<p>Como se diz "Eu tenho 20 anos" em inglês?</p>
+
+<input id="resposta2">
+<br>
+<button onclick="verificar2()">Responder</button>
+
+<p id="resultado2"></p>
+
+<hr>
+
+<p>Como se diz "Eu sou brasileiro" em inglês?</p>
+
+<input id="resposta3">
+<br>
+<button onclick="verificar3()">Responder</button>
+
+<p id="resultado3"></p>
+
+</div>
+
+<script>
+
+function verificar1(){
+
+let r = document.getElementById("resposta1").value.toLowerCase()
+
+if(r.includes("my name is")){
+document.getElementById("resultado1").innerHTML="✅ Correto!"
+}else{
+document.getElementById("resultado1").innerHTML="❌ Resposta: my name is"
+}
+
+}
+
+function verificar2(){
+
+let r = document.getElementById("resposta2").value.toLowerCase()
+
+if(r.includes("years old")){
+document.getElementById("resultado2").innerHTML="✅ Correto!"
+}else{
+document.getElementById("resultado2").innerHTML="❌ Resposta: I am 20 years old"
+}
+
+}
+
+function verificar3(){
+
+let r = document.getElementById("resposta3").value.toLowerCase()
+
+if(r.includes("brazilian")){
+document.getElementById("resultado3").innerHTML="✅ Correto!"
+}else{
+document.getElementById("resultado3").innerHTML="❌ Resposta: I am Brazilian"
+}
+
+}
+
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Aula 2</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f7f7f7;
+text-align:center;
+}
+
+.container{
+background:white;
+width:60%;
+margin:auto;
+margin-top:50px;
+padding:30px;
+border-radius:10px;
+}
+
+input{
+padding:10px;
+width:60%;
+}
+
+button{
+padding:10px 20px;
+margin-top:10px;
+background:#4cafac;
+color:white;
+border:none;
+border-radius:5px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Aula 2 — Pedindo café</h2>
+
+<h3>I would like a coffee</h3>
+<p>Eu gostaria de um café</p>
+
+<h3>Please</h3>
+<p>Por favor</p>
+
+<h3>Thank you</h3>
+<p>Obrigado</p>
+
+<hr>
+
+<p>Como se diz "Eu gostaria de um café"?</p>
+
+<input id="resposta1">
+<br>
+<button onclick="verificar1()">Responder</button>
+
+<p id="resultado1"></p>
+
+</div>
+
+<script>
+
+function verificar1(){
+
+let r = document.getElementById("resposta1").value.toLowerCase()
+
+if(r.includes("coffee")){
+document.getElementById("resultado1").innerHTML="✅ Correto!"
+}else{
+document.getElementById("resultado1").innerHTML="❌ Resposta: I would like a coffee"
+}
+
+}
+
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Aula 3</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f7f7f7;
+text-align:center;
+}
+
+.container{
+background:white;
+width:60%;
+margin:auto;
+margin-top:50px;
+padding:30px;
+border-radius:10px;
+}
+
+input{
+padding:10px;
+width:60%;
+}
+
+button{
+padding:10px 20px;
+margin-top:10px;
+background:#4cafac;
+color:white;
+border:none;
+border-radius:5px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Aula 3 — Família</h2>
+
+<h3>I live with my parents</h3>
+<p>Eu moro com meus pais</p>
+
+<h3>I have two brothers</h3>
+<p>Eu tenho dois irmãos</p>
+
+<h3>I have one sister</h3>
+<p>Eu tenho uma irmã</p>
+
+<hr>
+
+<p>Como se diz "Eu moro com meus pais"?</p>
+
+<input id="resposta1">
+<br>
+<button onclick="verificar()">Responder</button>
+
+<p id="resultado"></p>
+
+</div>
+
+<script>
+
+function verificar(){
+
+let r = document.getElementById("resposta1").value.toLowerCase()
+
+if(r.includes("live with my parents")){
+document.getElementById("resultado").innerHTML="✅ Correto!"
+}else{
+document.getElementById("resultado").innerHTML="❌ Resposta: I live with my parents"
+}
+
+}
+
+</script>
+
+</body>
+</html>
